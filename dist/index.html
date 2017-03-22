@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Event Planner</title>
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/app.min.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+        <script src="js/vendor/modernizr.min.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
+    </head>
+    <body>
+        <!-- Logged out menu -->
+        <div id="logIn">
+            <nav class="menu">
+                <h1 class="name"><i class="fi-calendar"></i><a href="index.html">Event Planner</a></h1>        
+                <ul class="inline-list account-action">
+                    <li><a href="#/" data-reveal-id="myModal">Login</a></li>
+                    <li><a class="signup my-button1" href="#/register">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Logged out menu -->
+        <!-- Logged in menu -->
+        <div id="logOut">
+            <nav class="menu">
+                <h1 class="name"><i class="fi-calendar"></i><a href="index.html">Event Planner</a></h1>        
+                <ul class="inline-list account-action">
+                    <li><a href="#/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Logged in menu -->
+        <div class="mainContainer">
+            <div id="container" class="container">
+                <!-- Alert box to test logins -->
+                <div id="alert" class="alert" role="alert">
+                    <h4 id="alert-title">You are not logged in</h4>
+                    <p id="alert-detail"></p>
+                </div>
+                <!-- / Alert box to test logins -->
+                <!-- LOGIN -->
+                <form id="frmLogin" role="form" class="registerForm">
+                    <ul class="errorMessages"></ul>
+                    <div class="row">
+                        <div class="large-6 medium-6 small-12 columns auth-plain">
+                            <div class="signup-panel left-solid">
+                                <h3>Login to create an event</h3>
+
+                                <div class="form-group">
+                                    <label for="txtEmail">Email address</label>
+                                    <input type="email" class="form-control loginEmailCheck autofocus" id="txtEmail" required placeholder="your@emailaddress.com" name="email" title="Enter your email address" />
+                                    <div class="icon-validation" id="txtLoginEmailCheck"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                    <ul class="helper-text" id="txtLoginEmailCheckContainer">
+                                        <li class="emailLoginReg">Please enter a valid email address</li>
+                                    </ul>
+                                    <div id="loginEmail"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtPass">Password</label>
+                                    <input type="password" class="form-control loginPasswordCheck" id="txtPass" min="8" placeholder="P@ssWord1" name="password" required title="Enter your password"/>
+                                    <div class="icon-validation" id="txtLoginPassCheck"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                    <ul class="helper-text" id="txtLoginPassCheckContainer">
+                                        <li class="passwordLength">Must be at least 8 characters long</li>
+                                        <li class="passwordLowercase">Must contain a lowercase letter (a-z)</li>
+                                        <li class="passwordUppercase">Must contain an uppercase letter (A-Z)</li>
+                                        <li class="passwordNumber">Must contain a number (0-9)</li>
+                                        <li class="passwordSpecial">Must contain a special character (!,@, #,$,%,^,&,*)</li>
+                                    </ul>
+                                    <div id="loginPassword"></div>
+                                </div>
+                                <button type="submit" id="submit" class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                        <div class="large-6 medium-6 small-12 columns auth-plain">
+                            <div class="signup-panel right-solid">
+                                <h3>Don't have an account?</h3>
+                                <p>Create an account today to create new events.</p>
+                                <a class="button" href="#/register">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- / LOGIN -->
+                <!-- LOGOUT -->
+                <form id="frmLogout" role="form">
+                    <div class="row">
+                        <div class="large-12 columns auth-plain">
+                            <h3>You are logged out!</h3>
+                            <h3>Login to create an event</h3>
+                            <a class="button" href="#/">Login</a>
+                        </div>
+                    </div>
+                </form>
+                <!-- / LOGOUT -->
+                <!-- REGISTER -->
+                <form id="frmRegister" role="form" class="registerForm">
+                    <div class="row">
+                        <div class="medium-6 small-12 columns form-group auth-plain">
+                            <h3>Register to create new events</h3>
+                            <p>*Required</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-6 small-12 columns form-group auth-plain">
+                            <label for="txtRegName">Name*</label>
+                            <input type="text" class="form-control autofocus nameCheck" autocomplete="name" id="txtRegName" required placeholder="John Smith" name="name" title="Must be alphanumeric in 6-12 chars" />
+                            <div class="icon-validation" id="txtRegNameCheck"><img src="img/valid-fonticon.jpg" alt=""></div>
+                            <ul class="helper-text" id="nameRegContainer">
+                                <li class="nameReg">Please enter a name that contains letters or numbers</li>
+                            </ul>
+                            <!-- <div id="regNameCheck"></div> -->
+                        </div>
+                        <div class="medium-6 small-12 columns form-group auth-plain">
+                            <label for="txtRegEmail">Email address*</label>
+                            <input type="email" class="form-control emailCheck" id="txtRegEmail" required placeholder="Enter email" name="email" title="Enter your email address" />
+                            <div class="icon-validation" id="txtRegEmailCheck"><img src="img/valid-fonticon.jpg" alt=""></div>
+                            <ul class="helper-text" id="emailRegContainer">
+                                <li class="emailReg">Please enter a valid email address</li>
+                            </ul>
+                            <!-- <div id="regEmailCheck"></div> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-6 small-12 columns form-group auth-plain passwordCheckContainer">
+                            <label for="txtRegPass">Password*</label>
+                            <input type="password" class="form-control passwordCheck" id="txtRegPass" min="8" required placeholder="P@ssWord1" name="password" title="Passwords must be at least 8 characters with 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (!,@, #,$,%,^,&,*)"/>
+                            <div class="icon-validation" id="txtRegPassCheck"><img src="img/valid-fonticon.jpg" alt=""></div>
+                            <ul class="helper-text" id="txtRegPassCheckContainer">
+                                <li class="passwordLengthReg">Must be at least 8 characters long</li>
+                                <li class="passwordLowercaseReg">Must contain a lowercase letter (a-z)</li>
+                                <li class="passwordUppercaseReg">Must contain an uppercase letter (A-Z)</li>
+                                <li class="passwordNumberReg">Must contain a number (0-9)</li>
+                                <li class="passwordSpecialReg">Must contain a special character (!,@, #,$,%,^,&,*)</li>
+                            </ul>
+                        </div>
+                        <div class="medium-6 small-12 columns form-group auth-plain passwordCheckContainer">
+                            <label for="txtPassCheck">Confirm Password*</label>
+                            <input type="password" class="form-control passwordConfirm" id="txtPassCheck" min="8" required placeholder="P@ssWord1" name="password" title="Re-type your password." />
+                            <div class="icon-validation" id="txtRegEmailConfirm"><img src="img/valid-fonticon.jpg" alt=""></div>
+                            <ul class="helper-text" id="txtRegEmailConfirmContainer">
+                                <li class="passwordMatch">Password must match</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="medium-6 small-12 columns">
+                            <label for="txtRegCompany">Company (optional)</label>
+                            <input id="txtRegCompany" class="form-control novalidation" type="text" autocomplete="company" placeholder="Company Name" title="Enter your Company (optional field)">
+                        </div>
+                        <div class="medium-6 small-12 columns">
+                            <label for="txtRegJob">Job Title (optional)</label>
+                            <input id="txtRegJob" class="form-control novalidation" type="text" autocomplete="job" placeholder="Job Title" title="Enter your job title (optional)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <button type="submit" id="submitReg" class="btn btn-default">Register</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- / REGISTER -->
+                <!-- Create Event Text -->
+                <form id="frmProfile" role="form" name="eventForm" class="registerEvent">
+                    <ul class="errorMessages"></ul>
+                    <div class="row">
+                        <div class="large-12 columns auth-plain">
+                            <h2>Event Page</h2>
+                            <!-- Toggle the form -->
+                            <button type="button" class="btn btn-default createEvent autofocusButton">Create Event</button>
+                            <div class="createEventForm">
+                                <p>Fill out the form to create a new event. <br /> *Required</p>
+                                <div class="row">                                    
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventName">Event Name*</label>
+                                        <input type="text" class="form-control autofocus nameEvent" id="eventName" required placeholder="Enter name of the event" title="What is the name of the event?">
+                                        <div class="icon-validation" id="txtRegEventName"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEventNameContainer">
+                                            <li class="regEvent">Please enter the Event Name</li>
+                                        </ul>
+                                        <!--<div id="regNameEvent"></div>-->
+                                    </div>
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventType">Event Type*</label>
+                                        <input type="text" class="form-control eventType" id="eventType" list="eventTypeListing" required placeholder="Enter type of event (birthday party, conference talk, wedding, etc)" title="What type of event are you hosting?">
+                                        <datalist id="eventTypeListing" class="eventType">
+                                            <option value="birthday party"></option>
+                                            <option value="conference talk"></option>
+                                            <option value="wedding"></option>
+                                            <option value="party"></option>
+                                        </datalist>
+                                        <div class="icon-validation" id="txtRegEventType"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEventTypeContainer">
+                                            <li class="regEventType">Please enter the Type of Event</li>
+                                        </ul>
+                                        <!--<div id="regEventType"></div>-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventHost">Event Host*</label>
+                                        <input type="text" class="form-control eventHost" id="eventHost" placeholder="Enter the event host (Name of person or organization" required name="name" title="Who is the host of the event?" >
+                                        <div class="icon-validation" id="txtRegEventHost"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEventHostContainer">
+                                            <li class="regHost">Please enter the Host of the Event</li>
+                                        </ul>
+                                        <!-- <div id="regEventHost"></div> -->
+                                    </div>
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventLocation">Event Location*</label>
+                                        <input type="text" onFocus="geolocate()" class="form-control eventLocation" id="eventLocation" required placeholder="1234 Main Street, City State Zip Code" title="Where is the event being held?">
+                                        <div class="icon-validation" id="txtRegEventLocation"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEventLocationContainer">
+                                            <li class="regLocation">Please enter a Location for the Event</li>
+                                        </ul>
+                                        <!-- <div id="regEventLocation"></div> -->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventStart">Start Date and Time*</label>
+                                        <input type="datetime-local" class="form-control eventStart" id="eventStart" required data-date-format="DD MMMM YYYY, hh:mm:ss" title="What date and time does the event start?">
+                                        <div class="icon-validation" id="txtRegStart"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegStartContainer">
+                                            <li class="regEventStart">Please enter a Start Time for the Event</li>
+                                            <li class="regEventStartBefore">Event Start Date cannot occur after or be the same as the End Time and Date.</li>
+                                        </ul>
+                                        <!--<div id="regEventStart"></div>-->
+                                    </div>
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventEnd">End Date and Time*</label>
+                                        <input type="datetime-local" class="form-control eventEnd" id="eventEnd" required data-date-format="DD MMMM YYYY, hh:mm:ss" title="What date and time does the event end?">
+                                        <div class="icon-validation" id="txtRegEnd"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEndContainer">
+                                            <li class="regEventEnd">Please enter an End Time for the Event</li>
+                                            <li class="regEventEndBefore">Event End Date cannot occur before or be the same as the Start Time and Date.</li>
+                                        </ul>
+                                        <!--<div id="regEventEnd"></div>-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventGuests">Guest List*</label>
+                                        <textarea type="textarea" class="form-control eventGuests" id="eventGuests" required placeholder="Enter the guest list separated by a comma (John, Mary, Bob, etc)" title="Who is attending the event?"></textarea>
+                                        <div class="icon-validation" id="txtRegEventGuests"><img src="img/valid-fonticon.jpg" alt=""></div>
+                                        <ul class="helper-text" id="txtRegEventGuestsContainer">
+                                            <li class="regEventGuests">Please enter at least one Guest for the Event</li>
+                                        </ul>
+                                        <!-- <div id="regEventGuests"></div> -->
+                                    </div>
+                                    <div class="form-group medium-6 small-12 columns">
+                                        <label for="eventInfo">Event Info (optional)</label>
+                                        <textarea type="textarea" class="form-control novalidation" id="eventInfo" placeholder="Enter any additional information for your guests." title="Do you have additional information about the event? (optional)"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group small-12 columns">
+                                        <button type="submit" id="submitEvent" class="btn btn-primary addValue">Submit Event</button>
+                                        <button type="button" class="btn btn-default closeEvent">Hide Create Event</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- / Create Event Text -->
+                <hr />
+                <!-- / REGISTER -->
+                <div class="large-12 columns auth-plain">
+                    <h3>Saved Events</h3>
+                    <div class="mainContainer">
+                        <div class="center row list-group" id="events">
+                        <!-- Contact Object list-group-item.contact items will be added here by js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/script.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9Tx6ZhKYOcHP3snLRvXaJv_gpTLLsEM&libraries=places&callback=initAutocomplete" async defer></script>
+        <script>
+            $(document).foundation();
+        </script>
+    </body>
+</html>
