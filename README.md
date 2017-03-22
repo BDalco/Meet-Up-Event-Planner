@@ -1,3 +1,6 @@
+Overview:
+A responsive web application that allows the user to establish a meet-up event.
+
 To run the program:
 
 1. Run Gulp in the Terminal to see the load Sass and Watch
