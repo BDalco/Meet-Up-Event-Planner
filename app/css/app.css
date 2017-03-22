@@ -1,0 +1,368 @@
+.row {
+  max-width: 100%; }
+
+/*Main Container */
+.mainContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 0 50px 0; }
+
+.eventContainers {
+  float: left !important;
+  padding-bottom: 30px; }
+
+/* Top Menu */
+.menu {
+  background-color: #292c2f;
+  padding: 1.5rem 3rem;
+  height: auto; }
+
+.menu .inline-list {
+  text-align: center; }
+
+.menu .inline-list li {
+  float: none;
+  display: inline-block; }
+
+.menu .inline-list a {
+  color: #fff;
+  padding-bottom: 0.5rem; }
+
+.menu .inline-list a:hover {
+  color: #87d37c;
+  transition: all .3s ease-in-out; }
+
+.menu .inline-list .active a {
+  color: #87d37c; }
+
+.menu .account {
+  position: absolute;
+  top: 3%;
+  right: 3%; }
+
+.menu .account a, .menu .account i {
+  color: #fff; }
+
+@media only screen and (min-width: 40.063em) {
+  .menu {
+    height: 5rem; }
+  .menu .inline-list {
+    float: left;
+    margin: 0 0 0 1.5rem; }
+  .menu a:hover {
+    border-bottom: 2px solid #87d37c; } }
+
+.menu .account-action {
+  float: right;
+  margin: -.75rem 0 0 0; }
+
+.menu .account-action li {
+  margin-left: .2rem; }
+
+.menu .account-action a {
+  padding: 0.75rem 1rem; }
+
+.menu .account-action a.signup {
+  font-weight: bold;
+  background-color: #3d4146;
+  border-radius: 3px; }
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff; }
+
+.name i {
+  color: #87d37c;
+  margin-right: 0.5rem; }
+
+@media only screen and (min-width: 40.063em) {
+  .name {
+    float: left; } }
+
+.name a, .name a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  border-bottom: none; }
+
+/* Info Boxes */
+.box {
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 25px;
+  display: block;
+  margin-top: 60px;
+  height: 750px; }
+
+.box-icon {
+  background-color: #569;
+  border-radius: 50%;
+  display: table;
+  height: 100px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: -61px;
+  font-size: 3rem; }
+
+.box-icon span {
+  color: #fff;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+
+.info h2 {
+  font-size: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+
+.info p {
+  color: #717171;
+  font-size: 16px;
+  padding-top: 10px;
+  text-align: center; }
+
+.event-details h3, h4, h5, h6 {
+  line-height: 1.25rem; }
+
+.event-details h3 {
+  font-size: 1.15rem; }
+
+.event-details h4 {
+  font-size: 0.9rem; }
+
+.date-box {
+  background: #569;
+  padding: 15px;
+  border-radius: 3px; }
+
+.date-box h3, .date-box h4 {
+  color: #FFFFFF; }
+
+/*.info a {
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease 0s; 
+}
+.info a:hover {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.5s ease 0s; 
+}*/
+.requiredFields p {
+  text-align: left;
+  font-size: 12px; }
+
+form {
+  display: none; }
+
+.result {
+  display: none; }
+
+#logOut {
+  display: none; }
+
+/* authentication */
+ul.chatbox {
+  height: 100px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  padding: 10px;
+  border-radius: 10px;
+  overflow-y: auto;
+  word-break: break-all;
+  list-style-type: none; }
+
+p.result {
+  color: #00AA00;
+  font-weight: bold; }
+
+p.result.note {
+  color: gray;
+  font-weight: normal;
+  font-style: italic; }
+
+p.result.error {
+  color: red; }
+
+input[name="data"] {
+  width: 200px; }
+
+input[name="user"] {
+  width: 100px; }
+
+input {
+  font-size: 14px;
+  line-height: 16px; }
+
+#login-layer {
+  /*position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    text-align: center;
+    padding-top: 50px;
+    z-index: 9999;*/ }
+
+#joinForm {
+  display: none; }
+
+#chatForm {
+  display: none; }
+
+#login {
+  font-size: 24px;
+  line-height: 30px;
+  padding: 10px; }
+
+.left-solid {
+  border-right: 1px solid #DDDDDD;
+  padding: 0px 30px 0 0; }
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1; }
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6; }
+
+/* Data entry */
+#entries {
+  width: 400px; }
+
+.entry {
+  height: 30px;
+  line-height: 30px; }
+
+.entry .options {
+  float: right; }
+
+/* Create Event */
+.createEventForm {
+  display: none; }
+
+@media only screen and (max-width: 40.063em) {
+  .menu .account-action {
+    float: none;
+    margin: 1rem 0 0 0; }
+  .left-solid {
+    border: none;
+    padding: 0px; } }
+
+/* Password Validation */
+form ul.helper-text {
+  display: block;
+  background-color: #F2DEDE;
+  border: 2px solid #EED3D7;
+  padding: 10px 15px;
+  margin: 0 0 25px 0;
+  color: #B94A48;
+  font-size: 85%;
+  width: 85%;
+  line-height: 22px;
+  font-weight: bold; }
+
+/*.loginContainer ul.helper-text {
+  display: none; }*/
+form ul.helper-text li.valid {
+  color: #1fd34a; }
+
+form ul.helper-text li {
+  list-style: none; }
+
+.show-if-false {
+  display: none; }
+
+.registerForm input, .registerEvent input, .registerEvent textarea {
+  width: 85%;
+  display: inline; }
+
+.errorMessages {
+  display: none;
+  list-style-type: disc;
+  margin: 0 10px 15px 10px;
+  padding: 8px 35px 8px 30px;
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 2px solid #EED3D7;
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+
+.errorMessages span {
+  font-weight: bold; }
+
+#regNameCheck, #regEmailCheck, #loginEmail, #loginPassword, #regNameEvent, #regEventType, #regEventHost, #regEventLocation, #regNameStart, #regEventStart, #regEventEnd, #regEventGuests {
+  color: #B94A48; }
+
+.errorDisplay {
+  display: block;
+  list-style-type: disc;
+  margin: 0 0 25px 0;
+  padding: 10px 15px;
+  background-color: #F2DEDE;
+  border: 2px solid #EED3D7;
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  width: 85%;
+  font-size: 85%;
+  font-weight: bold; }
+
+.icon-validation {
+  float: right;
+  right: 10px;
+  top: 4px;
+  position: relative;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+.inputError {
+  border-color: #900;
+  background-color: #FDD; }
+
+.inputValid {
+  border-color: #009948;
+  background-color: #afffd5; }
+
+#txtRegPassCheck, #txtRegNameCheck, #txtRegEmailCheck, #txtRegEmailConfirm, #txtLoginEmailCheck, #txtLoginPassCheck, #txtRegEventName, #txtRegEventType, #txtRegEventHost, #txtRegEventLocation, #txtRegEventGuests, #txtRegStart, #txtRegEnd {
+  visibility: hidden; }
+
+/* When the pattern is matched */
+input.novalidation {
+  border-color: #ccc;
+  background-color: #fff; }
+
+input:invalid {
+  border-color: #900;
+  background-color: #FDD; }
+
+textarea.novalidation {
+  border-color: #ccc;
+  background-color: #ff; }
+
+textarea:invalid {
+  border-color: #900;
+  background-color: #FDD; }
+
+/* This is the style of our error messages */
+.checkError {
+  width: 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.checkError.active {
+  padding: 0.3em; }
